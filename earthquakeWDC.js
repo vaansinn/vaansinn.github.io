@@ -22,7 +22,7 @@
 
         var tableSchema = {
             id: "earthquakeFeed",
-            alias: "Earthquakes with magnitude greater than 4.5 in the last seven days",
+            alias: "Earthquakes with magnitude greater than 4.5 in the last seven days - UPDATE!",
             columns: cols
         };
 
