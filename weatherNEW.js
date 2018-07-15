@@ -107,23 +107,14 @@
                     }
                 });
             };
-            tableau.registerConnector(myConnector);
-            $(document).ready(function() {
-                //register some input handlers
-                $("#inputForm").submit(function() {
-                    // This event fires when a button is clicked 
-                    event.preventDefault();
-                    var checkedBoxes = $('input[name=dataSourceName]:checked');
-                    if (!checkedBoxes || checkedBoxes.length == 0) // can be empty if user did not select a data source
-                    {
-                        return;
-                    }
-                    var textFieldData = checkedBoxes[0].value;
-                    // set the country code as the connection data so we can get to it when we fetch the data 
-                    tableau.connectionData = textFieldData;
-                    // name the data source. This will be the data source name in Tableau 
-                    tableau.connectionName = 'Weather Forecast Data for ' + textFieldData;
-                    tableau.submit();
-                });
-            });
-        })();
+
+    tableau.registerConnector(myConnector);
+
+    // Create event listeners for when the user submits the form
+    $(document).ready(function() {
+        $("#submitButton").click(function() {
+            tableau.connectionName = "USGS Earthquake Feed"; // This will be the data source name in Tableau
+            tableau.submit(); // This sends the connector object to Tableau
+        });
+    });
+})();
