@@ -9,9 +9,6 @@
             id: "CITY",
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "CITY ID",
-            dataType: tableau.dataTypeEnum.float
-        },{
             id: "TEMP",
             dataType: tableau.dataTypeEnum.float
         },{
@@ -20,6 +17,9 @@
         },{
             id: "LAT",
             dataType: tableau.dataTypeEnum.float
+        },{
+            id: "ICON",
+            dataType: tableau.dataTypeEnum.string
         }];
 
         var tableSchema = {
@@ -40,11 +40,11 @@
             // Iterate over the JSON object
             for (var i = 0, len = list.length; i < len; i++) {
                 tableData.push({
-					"CITY ID": list[i].id,
 					"CITY": list[i].name,
 					"TEMP": list[i].main.temp,
 					"LONG": list[i].coord.lon,
-					"LAT": list[i].coord.lat
+					"LAT": list[i].coord.lat,
+					"ICON": list[i].weather[0].icon
                 });
             }
 
