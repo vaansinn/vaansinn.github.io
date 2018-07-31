@@ -1,5 +1,5 @@
 (function() {
-	var cityID = [2656490, 2657060,2965768,2965535,2964405,2965140,2965929,2651023,7778677,2649984,2964179,2961123,2962334,2963397,2962026];
+	var cityID = [2656490, 2657060,2965535,2964405,2965140,2965929,2651023,7778677,2649984,2964179,2961123,2962334,2963397,2965727,2962941,2652586,2965654,2964540,2962304,2961086];
     // Create the connector object
     var myConnector = tableau.makeConnector();
 	
@@ -12,6 +12,18 @@
             id: "TEMP",
             dataType: tableau.dataTypeEnum.float
         },{
+            id: "PRES",
+            dataType: tableau.dataTypeEnum.float
+        },{
+            id: "HUM",
+            dataType: tableau.dataTypeEnum.float
+        },{
+            id: "RISE",
+            dataType: tableau.dataTypeEnum.float
+        },{
+            id: "SET",
+            dataType: tableau.dataTypeEnum.float
+        },{
             id: "LONG",
             dataType: tableau.dataTypeEnum.float
         },{
@@ -19,6 +31,9 @@
             dataType: tableau.dataTypeEnum.float
         },{
             id: "ICON",
+            dataType: tableau.dataTypeEnum.string
+        },{
+            id: "DESCR",
             dataType: tableau.dataTypeEnum.string
         }];
 
@@ -42,9 +57,14 @@
                 tableData.push({
 					"CITY": list[i].name,
 					"TEMP": list[i].main.temp,
+					"PRES": list[i].main.pressure,
+					"HUM": list[i].main.humidity,
+					"RISE": list[i].sys.sunrise,
+					"SET": list[i].sys.sunset,
 					"LONG": list[i].coord.lon,
 					"LAT": list[i].coord.lat,
-					"ICON": list[i].weather[0].icon
+					"ICON": list[i].weather[0].icon,
+					"DESCR": list[i].weather[0].description
                 });
             }
 
